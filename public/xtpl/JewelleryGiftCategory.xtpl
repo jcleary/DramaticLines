@@ -1,0 +1,35 @@
+<!-- BEGIN: main -->
+{FILE "header_gifts.xtpl"}
+
+<br>
+
+<span class="giftTitle">{categoryName}<br>
+<small>In a black satin-lined presentation box</small>
+</span>
+
+<table border="0" cellspacing="4" cellpadding="2">
+    <!-- BEGIN: row -->
+    <tr>
+
+        <!-- BEGIN: productLeft -->
+        <td style="padding: 15px">
+            <img class="gift" src="{IMAGE_URL}gifts/{button_up}"><br>
+            <span class="giftDescription">{title}&nbsp;&nbsp;<small>&pound;{price}</small></span>
+            <a href="{BASKET_URL}?command=add_item&title_id={title_id}&qty=1&time={TIME}&catId={catId}"><img src="{IMAGE_URL}buttons/add_to_basket.gif" border="0"></a>
+        </td>
+        <!-- END: productLeft -->
+
+        <!-- BEGIN: productRight -->
+        <td style="padding: 15px">
+            <img class="gift" src="{IMAGE_URL}gifts/{button_up}"><br>
+            <span class="giftDescription">{title}&nbsp;&nbsp;<small>&pound;{price}</small></span>
+            <a href="{BASKET_URL}?command=add_item&title_id={title_id}&qty=1&time={TIME}&catId={catId}"><img src="{IMAGE_URL}buttons/add_to_basket.gif" border="0"></a>
+        </td>
+        <!-- END: productRight -->
+
+    </tr>
+    <!-- END: row -->
+</table>
+
+{FILE "footer.xtpl"}
+<!-- END: main -->

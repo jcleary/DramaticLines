@@ -1,0 +1,51 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form name="formmain" method="get" action="{BASKET_URL}">
+<table cellpadding="3" cellspacing="1" border="0">
+    <tr>
+        <td class="total" colspan="3"> <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td><img src="{IMAGE_URL}cart/cash_register.gif" hspace="3">
+                    <td>Payment Options</td>
+                    <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                </tr>
+            </table></td>
+    </tr>
+    <tr>
+        <td colspan="3">Please let us know how you would like to pay:</td>
+    </tr>
+    <!-- BEGIN: paypal -->
+    <tr>
+        <td><input type="radio" name="payment_method" value="{PAYMENT_METHOD_ONLINE}" <!-- BEGIN: ONLINE_selected -->checked<!-- END: ONLINE_selected -->>
+        <td nowrap valign="top"><img src="{IMAGE_URL}buttons/pay_online.gif" border="0" alt="Make payments with PayPal - it's fast, free and secure!"></td>
+        <td valign="top">Use PayPal <img src="{IMAGE_URL}logos/paypal.gif" align="middle"> for secure online payment.</td>
+    </tr>
+    <!-- END: paypal -->
+    <tr>
+        <td><input type="radio" name="payment_method" value="{PAYMENT_METHOD_FAX}" <!-- BEGIN: FAX_selected -->checked<!-- END: FAX_selected -->>
+        <td nowrap valign="top"><img src="{IMAGE_URL}buttons/print_and_fax.gif" border="0" alt="Print and fax your order"></td>
+        <td valign="top"> Print the order form and fax it to us </td>
+    </tr>
+    <tr>
+        <td><input type="radio" name="payment_method" value="{PAYMENT_METHOD_PRINT}" <!-- BEGIN: PRINT_selected -->checked<!-- END: PRINT_selected -->>
+        <td nowrap valign="top"><img src="{IMAGE_URL}buttons/print_and_post.gif" border="0" alt="Print and post your order"></td>
+        <td valign="top"> Print the order form and post it to us together with
+            a cheque, sterling bank draft or money order. </td>
+    </tr>
+    <tr>
+        <td><input type="radio" name="payment_method" value="{PAYMENT_METHOD_PHONE}" <!-- BEGIN: PHONE_selected -->checked<!-- END: PHONE_selected -->>
+        <td nowrap valign="top"><img src="{IMAGE_URL}buttons/phone.gif" border="0" alt="Phone your order through"></td>
+        <td valign="top">Use UK freephone or call us from outside UK </td>
+    </tr>
+    <tr>
+        <td><input type="radio" name="payment_method" value="{PAYMENT_METHOD_OFFICAL_ORDER}" <!-- BEGIN: OFFICAL_selected -->checked<!-- END: OFFICAL_selected -->>
+        <td nowrap valign="top"><img src="{IMAGE_URL}buttons/offical_order.gif" border="0" alt="Offical Order"></td>
+        <td valign="top">Offical Order from a UK School, University or Business.</td>
+    </tr>
+    <tr>
+        <td colspan="3" align="right"><input name="cmd_submit_payment_method" type="image" src="{IMAGE_URL}buttons/continue.gif" width="120" height="35"></td>
+    </tr>
+</table>
+</form>
+{FILE "footer_no_links.xtpl"}
+<!-- END: main -->

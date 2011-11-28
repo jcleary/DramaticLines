@@ -1,0 +1,27 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<p>Dramatic Lines Publishers is a small independent press founded to promote drama.
+Publications have a wide variety of theatrical applications including use for drama examinations,
+auditions, festivals and theatre group performances.
+Many of the original pieces have proved popular winning entries in worldwide drama festival competitions.</p>
+
+<p>Our resource material and handbooks are used extensively in teaching and for further studies.
+Schools use the material for assemblies, lessons and classroom drama. The adaptable plays,
+musical plays and scenes are popular for school performances and drama workshops.</p>
+
+<p>Our writers are actors, directors, drama and speech examiners and teachers with
+first hand drama teaching experience.</p>
+
+<p style="text-align: right"><i>Dramatic Lines is a member of the Publishers Association</i></p>
+
+<br>
+<p>Dramatic Lines books are available direct from the publisher and specialist bookshops worldwide.</p>
+
+<p>London Stockists include:</p>
+
+<p>Samuel French<br>
+The National Theatre Bookshop<br>
+Offstage Bookshop</p>
+
+{FILE "footer.xtpl"}
+<!-- END: main -->

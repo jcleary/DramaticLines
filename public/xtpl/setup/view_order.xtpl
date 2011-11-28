@@ -1,0 +1,88 @@
+ <!-- BEGIN: main -->
+{FILE "setup/header.xtpl"}
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td class="total" width="1"><img src="{IMAGE_URL}setup/binoculars.gif" hspace="3">
+            <td class="total">View Orders</td>
+            <td class="total"><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+        </tr>
+    </table>
+    <br />
+    <form method="get" action="{ORDER_SETUP_URL}">
+    Order No: <input type="text" name="ord_id" size="12" maxlength="12" value=""> <input type="submit" name="cmd_view_order" value="View">
+    </form>
+
+    <table cellpadding="3" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td valign="top" class="total" colspan="2">Order Details</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Order No</td>
+            <td valign="top" class="row" width="80%">{ordId}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Date</td>
+            <td valign="top" class="row" width="80%">{createdDate}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Name</td>
+            <td valign="top" class="row" width="80%">{name}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Address</td>
+            <td valign="top" class="row" width="80%">
+                <div>{addressLine1}</div>
+                <div>{addressLine2}</div>
+                <div>{addressLine3}</div>
+                <div>{addressLine4}</div>
+                <div>{postcode}</div>
+                <div>{addressCountryName}</div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" nowrap>Contact Telephone</td>
+            <td valign="top" class="row">{tel}&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">E-mail</td>
+            <td valign="top" class="row">{email}&nbsp;</td>
+        </tr>
+    </table>
+    <br />
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+            <td class="heading"><strong>Title</strong></td>
+            <td align="right" width="60" class="heading"><strong>Qty</strong></td>
+            <td align="right" class="heading"><strong>Each</strong></td>
+            <td align="right" class="heading"><strong>Total</strong></td>
+        </tr>
+        <!-- BEGIN: title -->
+        <tr>
+            <td class="row">{title}</td>
+            <td align="right" class="row">{Qty}</td>
+            <td align="right" class="row">&pound; {price}</td>
+            <td align="right" class="row">&pound; {BookTotal}</td>
+        </tr>
+        <!-- END: title -->
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row">sub-total</td>
+            <td align="right" class="row">&pound; {AllBookTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row">post and packing</td>
+            <td align="right" class="row">&pound; {AllShippingTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="heading">Total</td>
+            <td align="right" class="heading">&pound; {Total}</td>
+        </tr>
+    </table>
+
+{FILE "setup/footer.xtpl"}
+<!-- END: main -->

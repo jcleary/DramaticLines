@@ -1,0 +1,53 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+
+<table cellpadding="3" cellspacing="1" border="0">
+    <!--
+    <tr>
+        <td class="total" colspan="2">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td><img src="{IMAGE_URL}cart/cart.gif" hspace="3">
+                    <td>Payment Options</td>
+                    <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>-->
+    <tr>
+        <td>Thank you for your order. Your order number is <strong>{ordId}</strong>. You can view <a href="{BASKET_URL}?command=view_order&ord_id={ordId}&sec_id={secId}" target="_blank">your order form</a> here.</td>
+    </tr>
+    <!-- BEGIN: print_post_fax -->
+    <tr>
+        <td>As you have chosen to <b>{paymentMethodDescr}</b>. Please check your <a href="{BASKET_URL}?command=view_order&ord_id={ordId}&sec_id={secId}" target="_blank">order form</a> for instructions on how to complete your order.</td>
+    </tr>
+    <!-- END: print_post_fax -->
+    <!-- BEGIN: online -->
+    <tr>
+        <td nowrap valign="top">
+            You have chosen to pay online. Please click on the button below to pay using PayPal.
+        </td>
+    </tr>
+    <tr>
+        <td nowrap valign="top" align="center">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="mail@dramaticlines.co.uk">
+                <input type="hidden" name="item_name" value="Dramatic Lines Shopping Basket">
+                <input type="hidden" name="item_number" value="{ordId}">
+                <input type="hidden" name="amount" value="{orderTotal}">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="currency_code" value="GBP">
+                <input type="image" src="{IMAGE_URL}buttons/paypal_but03.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+            </form>
+        </td>
+    </tr>
+    <!-- END: online -->
+    <!-- BEGIN: offical -->
+    <tr>
+        <td>Offical order instructions go here!!!</td>
+    </tr>
+    <!-- END: offical -->
+</table>
+{FILE "footer.xtpl"}
+<!-- END: main -->

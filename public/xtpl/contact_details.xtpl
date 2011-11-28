@@ -1,0 +1,40 @@
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td>
+            <table cellpadding="0" cellspacing="2" border="0" width="100%">
+                <tr>
+                    <td class="medium" nowrap><b>Dramatic Lines Publishers</b></td>
+                    <td class="medium" width="15%">&nbsp;</td>
+                    <td class="medium" nowrap>PO Box 201</td>
+                    <td class="medium" width="15%">&nbsp;</td>
+                    <td class="medium" nowrap>Twickenham</td>
+                    <td class="medium" width="15%">&nbsp;</td>
+                    <td class="medium" nowrap>TW2 5RQ</td>
+                    <td class="medium" width="15%">&nbsp;</td>
+                    <td class="medium" nowrap>England</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table cellpadding="0" cellspacing="2" border="0" width="100%">
+                <tr>
+                    <td class="small" nowrap><b>Tel:</b> +44 (0)20 8296 9502</td>
+                    <td class="small" width="15%">&nbsp;</td>
+                    <td class="small" nowrap><b>Fax:</b> +44 (0)20 8296 9503</td>
+                    <td class="small" width="15%">&nbsp;</td>
+                    <td class="small" nowrap>
+                        <b>E-mail:</b>
+                        <script language="JavaScript" type="text/javascript">
+                        <!--
+                        document.write("<a href='#' onClick='get_edress();return false;'><img src='{IMAGE_URL}email.gif' border='0' align='top'></a>");
+                        // -->
+                        </script>
+                        <noscript>Contact Us</noscript>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

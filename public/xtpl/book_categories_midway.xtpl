@@ -1,0 +1,39 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+  <table border="0" cellspacing="4" cellpadding="2">
+        <!-- BEGIN: bookRow -->
+        <tr>
+            <!-- BEGIN: book -->
+            <td align="right"><a href="{BOOKS_URL}?command=show_title&title_id={title_id}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('but_{title_id}','','{IMAGE_URL}buttons/small_book/{button_down}',1)"><img src="{IMAGE_URL}buttons/small_book/{button_up}" width="50" height="50" border="0" name="{title}"></a></td>
+            <td valign="top"><a href="{BOOKS_URL}?command=show_title&title_id={title_id}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('but_{title_id}','','{IMAGE_URL}buttons/small_book/{button_down}',1)">{title}</a></td>
+            <!-- BEGIN: spacer -->
+            <td valign="top" width="10">&nbsp;</td>
+            <!-- END: spacer -->
+            <!-- END: book -->
+            <!-- BEGIN: dummy_book -->
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <!-- END: dummy_book -->
+        </tr>
+        <!-- END: bookRow -->
+
+        <!-- BEGIN: categoryRow -->
+        <tr>
+            <!-- BEGIN: category -->
+            <td>
+                <a href="{BOOKS_URL}?command=show_category&cat_id={cat_id}">
+                <img src="{IMAGE_URL}categories/{cat_button}" border="0">
+              </a>
+            </td>
+            <td valign="middle">
+                <a href="{BOOKS_URL}?command=show_category&cat_id={cat_id}">{cat_name}</a>
+            </td>
+            <!-- BEGIN: spacer -->
+            <td valign="top" width="10">&nbsp;</td>
+            <!-- END: spacer -->
+            <!-- END: category -->
+        </tr>
+        <!-- BEGIN: categoryRow -->
+    </table>
+{FILE "footer.xtpl"}
+<!-- END: main -->

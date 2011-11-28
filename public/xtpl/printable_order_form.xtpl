@@ -1,0 +1,187 @@
+ <!-- BEGIN: main -->
+{FILE "printable_header.xtpl"}
+    <div align="right"><strong>ORDER FORM</strong></div>
+    <table cellpadding="3" cellspacing="0" border="0" width="100%">
+        <!-- BEGIN: dramatic_address -->
+        <tr>
+            <td colspan="2">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}spacer.gif" width="30"></td>
+                        <td>
+                            <br />
+                            <br />
+                            <strong>Dramatic Lines Publishers</strong><br />
+                            PO Box 201<br />
+                            Twickenham<br />
+                            TW2 5RQ<br />
+                            England<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- END: dramatic_address -->
+        <tr>
+            <td valign="top" class="total" colspan="2">Order Details</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Order No</td>
+            <td valign="top" class="row" width="80%">{ordId}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Name</td>
+            <td valign="top" class="row" width="80%">{name}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" width="20%" nowrap>Address</td>
+            <td valign="top" class="row" width="80%">
+                <div>{addressLine1}</div>
+                <div>{addressLine2}</div>
+                <div>{addressLine3}</div>
+                <div>{addressLine4}</div>
+                <div>{postcode}</div>
+                <div>{addressCountryName}</div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" nowrap>Contact Telephone</td>
+            <td valign="top" class="row">{tel}&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">E-mail</td>
+            <td valign="top" class="row">{email}&nbsp;</td>
+        </tr>
+    </table>
+    <br />
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+            <td class="heading"><strong>Title</strong></td>
+            <td align="right" width="60" class="heading"><strong>Qty</strong></td>
+            <td align="right" class="heading"><strong>Each</strong></td>
+            <td align="right" class="heading"><strong>Total</strong></td>
+        </tr>
+        <!-- BEGIN: title -->
+        <tr>
+            <td class="row">{title}</td>
+            <td align="right" class="row">{Qty}</td>
+            <td align="right" class="row">&pound; {price}</td>
+            <td align="right" class="row">&pound; {BookTotal}</td>
+        </tr>
+        <!-- END: title -->
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row">sub-total</td>
+            <td align="right" class="row">&pound; {AllBookTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row">post and packing</td>
+            <td align="right" class="row">&pound; {AllShippingTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="heading">Total</td>
+            <td align="right" class="heading">&pound; {Total}</td>
+        </tr>
+    </table>
+    <br />
+    <table border="0" cellspacing="2" cellpadding="2" width="100%">
+        <tr>
+            <td class="total">Instructions</td>
+        </tr>
+        <!-- BEGIN: post_instructions -->
+        <tr>
+            <td>
+                <ul>
+                    <li>Please print out your order form.</li>
+                    <li>Make sterling cheques payable to <b>Dramatic Lines</b>, enclose official order or supply credit card details.</li>
+                    <li>When you are finished, you may wish to return to our <a href="{INDEX_URL}">home page</a>.</li>
+                </ul>
+            </td>
+        </tr>
+        <!-- END: post_instructions -->
+        <!-- BEGIN: fax_instructions -->
+        <tr>
+            <td>
+                <ul>
+                    <li>Please print out your order form.</li>
+                    <li>Please supply official order or credit card details and fax to +44 (0) 20 8296 9503</li>
+                    <li>When you are finished, you may wish to return to our <a href="{INDEX_URL}">home page</a>.</li>
+                </ul>
+            </td>
+        </tr>
+        <!-- END: fax_instructions -->
+        <!-- BEGIN: phone_instructions -->
+        <tr>
+            <td>
+                <ul>
+                    <li>Please phone us on <b>UK FREEPHONE 0800 54 29 57 0</b> or <b>+44 (0) 20 8296 9502</b> from outside the UK.</li>
+                    <li>For immediate despatch of goods please have your credit or debit card details ready.</li>
+                    <li>When you are finished, you may wish to return to our <a href="{INDEX_URL}">home page</a>.</li>
+                </ul>
+            </td>
+        </tr>
+        <!-- END: phone_instructions -->
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <!-- BEGIN: credit_card_details -->
+        <tr>
+            <td class="total">Credit Card Details</td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td nowrap>Credit / Debit card no</td>
+                        <td nowrap>________________________________</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>Start Date</td>
+                        <td nowrap>__ __ / __ __</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>Expiry Date</td>
+                        <td nowrap>__ __ / __ __</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>Issue no (Switch Only)</td>
+                        <td nowrap>______</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>Security Code *</td>
+                        <td nowrap>__ __ __ last 3 digits</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>Name on card</td>
+                        <td nowrap>________________________________</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>* Security code – look for a string of numbers on the <b>reverse</b> of the card along the signature strip</p>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <!-- END: credit_card_details -->
+        <tr>
+            <td>
+                <p align="center"><img src="{IMAGE_URL}logos/credit_cards.gif" width="234" height="25"></p>
+            </td>
+        </tr>
+    </table>
+
+{FILE "printable_footer.xtpl"}
+<!-- END: main -->

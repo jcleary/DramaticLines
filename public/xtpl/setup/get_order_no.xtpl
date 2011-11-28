@@ -1,0 +1,18 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td class="total" width="1"><img src="{IMAGE_URL}setup/binoculars.gif" hspace="3">
+        <td class="total">View Orders</td>
+        <td class="total"><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+    </tr>
+</table>
+<br />
+<form method="get" action="{ORDER_SETUP_URL}">
+Order No: <input type="text" name="ord_id" size="12" maxlength="12"> <input type="submit" name="cmd_view_order" value="View">
+</form>
+
+{FILE "footer.xtpl"}
+<!-- END: main -->
+
+

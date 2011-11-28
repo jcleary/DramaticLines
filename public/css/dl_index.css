@@ -1,0 +1,40 @@
+
+p, td, body
+   {
+   font-family: "Century Gothic", sans-serif;
+   color: #FFFFFF
+   }
+
+a:link
+   {
+   color: #FFFF00;
+   }
+
+a:visited
+   {
+   color: #FFFF00;
+   }
+
+a:hover
+   {
+   color: #33CC00;
+   text-decoration: none;
+   }
+
+a:active
+   {
+   text-decoration: none;
+   }
+
+
+a.novisit:visited
+   {
+   color: #0000CC;
+   }
+
+a.novisit:hover
+   {
+   color: #CC0000;
+   text-decoration: none;
+   }
+.small { font-size: 10px}

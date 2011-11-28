@@ -1,0 +1,16 @@
+<!-- BEGIN: empty_basket -->
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td><img src="{IMAGE_URL}cart/empty_cart.gif" align="middle" border="0" vspace="1"></td>
+        <td class="small">&nbsp;<span class="lowlight">your basket is empty</span></td>
+    </tr>
+</table>
+<!-- END: empty_basket -->
+<!-- BEGIN: full_basket -->
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td><a href="{BASKET_URL}"><img src="{IMAGE_URL}cart/full_cart.gif" align="middle" border="0" vspace="1"></a></td>
+        <td class="small">&nbsp;<span class="lowlight"><a href="{BASKET_URL}">view basket</a> ({basket_count} item<!-- BEGIN: items -->s<!-- END: items -->)</span></td>
+    </tr>
+</table>
+<!-- END: full_basket -->

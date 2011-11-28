@@ -1,0 +1,71 @@
+ <!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form action="{BASKET_URL}" method="get" name="formmain" id="formmain">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+            <td class="total" colspan="4">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/full_cart.gif" hspace="3">
+                        <td>Shopping Basket</td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="heading"><strong>Title</strong></td>
+            <td width="60" class="heading"><strong>Qty</strong></td>
+            <td align="right" class="heading"><strong>Each</strong></td>
+            <td align="right" class="heading"><strong>Total</strong></td>
+        </tr>
+        <!-- BEGIN: title -->
+        <tr>
+            <td class="row">{title}</td>
+            <td class="row"><input name="qty_{title_id}" type="text" id="qty_{title_id}" value="{Qty}" size="4" maxlength="4"></td>
+            <td align="right" class="row">&pound; {price}</td>
+            <td align="right" class="row">&pound; {BookTotal}</td>
+        </tr>
+        <!-- END: title -->
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row">sub-total</td>
+            <td align="right" class="row">&pound; {AllBookTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="row" nowrap>post &amp; packing to
+                <select name="country_code" class="basketCountrySelection" onChange="document.forms[0].submit();">
+                    <!-- BEGIN: country -->
+                    <option value="{countryCode}" <!-- BEGIN: selected -->selected<!-- END: selected -->>{countryName}</option>
+                    <!-- END: country -->
+                </select>
+            </td>
+            <td align="right" class="row">&pound; {AllShippingTotal}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="right" class="total" nowrap>Total</td>
+            <td align="right" class="total" nowrap>&pound; {Total}</td>
+        </tr>
+        <tr align="right">
+            <td colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><input name="cmd_update_quantities" type="image" src="{IMAGE_URL}buttons/update_basket.gif"></td>
+                        <td align="right">
+                            <input name="cmd_continue_shopping" type="image" src="{IMAGE_URL}buttons/continue_shopping.gif">
+                            <input name="cmd_submit_basket" type="image" src="{IMAGE_URL}buttons/checkout.gif">
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

@@ -1,0 +1,115 @@
+ <!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form action="{BASKET_URL}" method="get" name="formmain" id="formmain">
+    <table cellpadding="3" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td class="total" colspan="3">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/package.gif" hspace="3">
+                        <td>Delivery Details</td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right" colspan="2" class="total"><a href="{BASKET_URL}?command=shipping_info"><img src="{IMAGE_URL}buttons/change.gif" border="0"></a></td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">Name</td>
+            <td valign="top" class="row" colspan="4">{name}</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">Address</td>
+            <td valign="top" class="row" colspan="4">
+                <div>{addressLine1}</div>
+                <div>{addressLine2}</div>
+                <div>{addressLine3}</div>
+                <div>{addressLine4}</div>
+                <div>{postcode}</div>
+                <div>{addressCountryName}</div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">Contact Telephone</td>
+            <td valign="top" class="row" colspan="4">{tel}&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="top" class="row">E-mail</td>
+            <td valign="top" class="row" colspan="4">{email}&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td class="total" colspan="3">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/cash_register.gif" hspace="3">
+                        <td>Payment Options</td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right" colspan="2" class="total"><a href="{BASKET_URL}?command=payment_method"><img src="{IMAGE_URL}buttons/change.gif" border="0"></a></td>
+        </tr>
+        <tr>
+            <td valign="top" class="row" colspan="5">You have chosen to <b>{paymentMethodDescr}</b>.</td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td class="total" colspan="3">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/full_cart.gif" hspace="3">
+                        <td>Shopping Basket</td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right" class="total" colspan="2"><a href="{BASKET_URL}"><img src="{IMAGE_URL}buttons/change.gif" border="0"></a></td>
+        </tr>
+        <tr>
+            <td class="heading" colspan="2"><strong>Title</strong></td>
+            <td align="right" width="60" class="heading"><strong>Qty</strong></td>
+            <td align="right" class="heading"><strong>Each</strong></td>
+            <td align="right" class="heading"><strong>Total</strong></td>
+        </tr>
+        <!-- BEGIN: title -->
+        <tr>
+            <td class="row" colspan="2">{title}</td>
+            <td align="right" class="row">{Qty}</td>
+            <td align="right" class="row">&pound; {price}</td>
+            <td align="right" class="row">&pound; {BookTotal}</td>
+        </tr>
+        <!-- END: title -->
+        <tr>
+            <td colspan="3">&nbsp;</td>
+            <td align="right" class="row">sub-total</td>
+            <td align="right" class="row">&pound; {AllBookTotal}</td>
+        </tr>
+        <tr>
+            <td colspan="3">&nbsp;</td>
+            <td align="right" class="row">post and packing</td>
+            <td align="right" class="row">&pound; {AllShippingTotal}</td>
+        </tr>
+        <tr>
+            <td colspan="3">&nbsp;</td>
+            <td align="right" class="heading">Total</td>
+            <td align="right" class="heading">&pound; {Total}</td>
+        </tr>
+        <tr>
+            <td colspan="5" align="right">
+                <br />
+                <input name="cmd_confirm_order" type="image" src="{IMAGE_URL}buttons/submit_order.gif" width="120" height="35">
+            </td>
+        </tr>
+    </table>
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

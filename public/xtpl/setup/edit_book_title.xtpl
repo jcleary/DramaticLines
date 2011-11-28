@@ -1,0 +1,240 @@
+<!-- BEGIN: main -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Dramatic Lines - Setup - Edit Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="{CSS_URL}dl_general.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/htmlarea/htmlarea.js"></script>
+<script type="text/javascript" src="/htmlarea/lang/en.js"></script>
+<script type="text/javascript" src="/htmlarea/dialog.js"></script>
+
+<style type="text/css">
+@import url({BASE_URL}htmlarea/htmlarea.css);
+
+</style>
+
+<script type="text/javascript">
+var editor = null;
+function initEditor() {
+  editor = new HTMLArea("description");
+
+  // comment the following two lines to see how customization works
+
+  var cfg = editor.config; // this is the default configuration
+
+cfg.toolbar = [
+[ "bold", "italic", "underline", "separator",
+  "strikethrough", "subscript", "superscript", "separator",
+  "copy", "cut", "paste", "space", "undo", "redo","separator",
+
+  "justifyleft", "justifycenter", "justifyright", "justifyfull", "separator",
+  "insertorderedlist", "insertunorderedlist", "outdent", "indent", "separator",
+  "forecolor", "textindicator", "separator",
+  "inserthorizontalrule", "createlink", "insertimage", "inserttable", "htmlmode", "separator",
+  "popupeditor", "separator", "showhelp", "about" ]
+];
+  editor.generate();
+  return false;
+
+  cfg.registerButton({
+    id        : "my-hilite",
+    tooltip   : "Highlight text",
+    image     : "ed_custom.gif",
+    textMode  : false,
+    action    : function(editor) {
+                  editor.surroundHTML("<span class=\"hilite\">", "</span>");
+                },
+    context   : 'table'
+  });
+
+  cfg.toolbar.push(["linebreak", "my-hilite"]); // add the new button to the toolbar
+
+  // BEGIN: code that adds a custom button
+  // uncomment it to test
+  var cfg = editor.config; // this is the default configuration
+  /*
+  cfg.registerButton({
+    id        : "my-hilite",
+    tooltip   : "Highlight text",
+    image     : "ed_custom.gif",
+    textMode  : false,
+    action    : function(editor) {
+                  editor.surroundHTML("<span class=\"hilite\">", "</span>");
+                }
+  });
+  */
+
+function clickHandler(editor, buttonId) {
+  switch (buttonId) {
+    case "my-toc":
+      editor.insertHTML("<h1>Table Of Contents</h1>");
+      break;
+    case "my-date":
+      editor.insertHTML((new Date()).toString());
+      break;
+    case "my-bold":
+      editor.execCommand("bold");
+      editor.execCommand("italic");
+      break;
+    case "my-hilite":
+      editor.surroundHTML("<span class=\"hilite\">", "</span>");
+      break;
+  }
+};
+cfg.registerButton("my-toc",  "Insert TOC", "ed_custom.gif", false, clickHandler);
+cfg.registerButton("my-date", "Insert date/time", "ed_custom.gif", false, clickHandler);
+cfg.registerButton("my-bold", "Toggle bold/italic", "ed_custom.gif", false, clickHandler);
+cfg.registerButton("my-hilite", "Hilite selection", "ed_custom.gif", false, clickHandler);
+
+cfg.registerButton("my-sample", "Class: sample", "ed_custom.gif", false,
+  function(editor) {
+    if (HTMLArea.is_ie) {
+      editor.insertHTML("<span class=\"sample\">&nbsp;&nbsp;</span>");
+      var r = editor._doc.selection.createRange();
+      r.move("character", -2);
+      r.moveEnd("character", 2);
+      r.select();
+    } else { // Gecko/W3C compliant
+      var n = editor._doc.createElement("span");
+      n.className = "sample";
+      editor.insertNodeAtSelection(n);
+      var sel = editor._iframe.contentWindow.getSelection();
+      sel.removeAllRanges();
+      var r = editor._doc.createRange();
+      r.setStart(n, 0);
+      r.setEnd(n, 0);
+      sel.addRange(r);
+    }
+  }
+);
+
+
+  /*
+  cfg.registerButton("my-hilite", "Highlight text", "ed_custom.gif", false,
+    function(editor) {
+      editor.surroundHTML('<span class="hilite">', '</span>');
+    }
+  );
+  */
+  cfg.pageStyle = "body { background-color: #efd; } .hilite { background-color: yellow; } "+
+                  ".sample { color: green; font-family: monospace; }";
+  cfg.toolbar.push(["linebreak", "my-toc", "my-date", "my-bold", "my-hilite", "my-sample"]); // add the new button to the toolbar
+  // END: code that adds a custom button
+
+  editor.generate();
+}
+function insertHTML() {
+  var html = prompt("Enter some HTML code here");
+  if (html) {
+    editor.insertHTML(html);
+  }
+}
+function highlight() {
+  editor.surroundHTML('<span style="background-color: yellow">', '</span>');
+}
+</script>
+
+</head>
+
+<body onLoad="initEditor()">
+<form action="index.php" method="post" enctype="multipart/form-data" name="form1">
+    <input name="command" type="hidden" id="command" value="update_title">
+    <input name="title_id" type="hidden" id="title_id" value="{title_id}">
+    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr>
+            <td colspan="2" bgcolor="#666666"><strong><font color="#FFFFFF">Edit
+                Title</font></strong></td>
+        </tr>
+        <tr>
+            <td width="20%">Book Title</td>
+            <td><input name="title" type="text" id="title" value="{title}" size="30" maxlength="60"></td>
+        </tr>
+        <tr>
+            <td>Sub Title</td>
+            <td><input name="sub_title" type="text" id="sub_title" value="{sub_title}" size="30" maxlength="60"></td>
+        </tr>
+        <tr>
+            <td>Category Order</td>
+            <td>
+                <input name="ord" type="text" id="ord" value="{ord}" size="6" maxlength="6">
+                <small>This is the order books will appear within thier own book category page</small>
+            </td>
+        </tr>
+        <tr>
+            <td>Top Order</td>
+            <td>
+                <input name="top_order" type="text" id="top_order" value="{top_order}" size="6" maxlength="6">
+                <small>This is the order books will appear on the <i>Book Titles</i> page. Set this is 0 to remove book from Book Titles page.</small>
+            </td>
+        </tr>
+        <tr>
+            <td>ISBN</td>
+            <td><input name="isbn" type="text" id="isbn" value="{isbn}" size="30" maxlength="60"></td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td><input name="author" type="text" id="author" value="{author}" size="30" maxlength="60"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+            <textarea name="description" cols="80" rows="16" id="description">{description}</textarea>
+                <script language="JavaScript1.2" defer>
+                var config = new Object(); // create new config object
+
+                config.toolbar = [
+                  //['fontname'],
+                  //['fontsize'],
+                  //['fontstyle'],
+                  //['linebreak'],
+                  ['bold','italic','underline','separator'],
+                  //['strikethrough','subscript','superscript','separator'],
+                  ['justifyleft','justifycenter','justifyright','separator'],
+                  ['OrderedList','UnOrderedList','Outdent','Indent','separator'],
+                  //['forecolor','backcolor','separator'],
+                  //['custom1','custom2','custom3','separator'],
+                  ['HorizontalRule','Createlink','InsertImage','htmlmode','separator'],
+                  //['about','help']
+                ];
+                config.width = "100%";
+                config.height = "200px";
+                editor_generate('description', config);
+                </script>
+            </td>
+
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>&pound;
+                <input name="price" type="text" id="price" value="{price}" size="12" maxlength="12"></td>
+        </tr>
+        <tr>
+            <td>P&amp;P</td>
+            <td>&pound;
+                <input name="p_and_p" type="text" id="p_and_p" value="{p_and_p}" size="12" maxlength="12"></td>
+        </tr>
+        <tr>
+            <td>Weight (grammes)</td>
+            <td>
+                <input name="weight" type="text" value="{weight}" size="12" maxlength="12">
+            </td>
+        </tr>
+        <tr>
+            <td>Book Cover</td>
+            <td><input name="book_cover" type="file" id="book_cover"></td>
+        </tr>
+        <tr>
+            <td>Mini Book Cover</td>
+            <td><input name="mini_book_cover" type="file" id="mini_book_cover"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="save" type="submit" id="save" value="Save"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<!-- END: main -->

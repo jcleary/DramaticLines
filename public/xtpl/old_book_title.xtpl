@@ -1,0 +1,83 @@
+<!-- BEGIN: main -->
+<html>
+<!-- DW6 -->
+<head>
+<title>Dramatic Lines Publishers - {title}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="{CSS_URL}dl_general.css">
+</head>
+<body onLoad="" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" background="..{IMAGE_URL}book_covers/book_wp.gif">
+<table width="760" border="0" cellspacing="0" cellpadding="0" height="100%">
+    <tr valign="middle">
+        <td rowspan="2" width="101"><img src="..{IMAGE_URL}spacer.gif" width="101" height="8"></td>
+        <td height="5"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td rowspan="3" width="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                    <td height="10" colspan="2"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                    <td rowspan="3" width="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                </tr>
+                <tr>
+                    <td><img src="..{IMAGE_URL}logos/logo.gif" width="393" height="40" border="0"></td>
+                    <td width="220" class="small">
+                        {FILE "basket_summary.xtpl"}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <table width="100%" border="0" cellspacing="0" cellpadding="0" background="..{IMAGE_URL}logo_underline.gif" height="6">
+                            <tr>
+                                <td><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                            </tr>
+                        </table></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td><table width="100%" border="0" cellspacing="1" cellpadding="10" height="100%">
+                <tr>
+                    <td colspan="2" height="5"> <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td> <table width="175" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" background="..{IMAGE_URL}book_colours/monologues.gif">
+                                        <tr>
+                                            <td colspan="3" height="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" width="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                                            <td align="center" width="155" bgcolor="#FFFFFF" background="..{IMAGE_URL}white_spacer.gif"><img src="..{IMAGE_URL}book_covers/{cover}" width="144" height="200"></td>
+                                            <td align="right" width="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" height="10"><img src="..{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                                        </tr>
+                                    </table></td>
+                                <td align="left" valign="top"><img src="..{IMAGE_URL}spacer.gif" width="16" height="1"></td>
+                                <td align="left" valign="top"> <p><strong>{title}</strong><br>
+                                        {sub_title}</p>
+                                    <p>{author}</p>
+                                    <p>ISBN: {isbn}</p>
+                                    <p>&pound;{price}<br>
+                                        <br>
+                                        <a href="index2.php?command=add_item&title_id={title_id}&qty=1&time={TIME}"><img src="..{IMAGE_URL}buttons/add_to_basket.gif" width="120" height="35" border="0"></a></p></td>
+                            </tr>
+                        </table></td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="5"> {description} </td>
+                </tr>
+                <tr align="center" valign="bottom">
+                    <td colspan="2"> <p> <a href="index2.php?command=show_categories">book
+                            categories</a> | <a href="about_us.html">about
+                            us</a> | <a href="index2.php">home</a></p>
+                        <!-- #BeginLibraryItem "/Library/contact info.lbi" -->
+<p align="center"><span class="small"><b>Dramatic Lines Publishers</b> PO Box
+  201, Twickenham, TW2 5RQ, England<br>
+  <b>Tel:</b> +44 (0)20 8296 9502 <b>Fax:</b> +44 (0)20 8296 9503 <b>E-mail:</b>
+  <a href="mailto:mail@dramaticlines.co.uk">mail@dramaticlines.co.uk</a></span></p>
+<!-- #EndLibraryItem --></td>
+                </tr>
+            </table></td>
+    </tr>
+</table>
+</body>
+</html>
+<!-- END: main-->

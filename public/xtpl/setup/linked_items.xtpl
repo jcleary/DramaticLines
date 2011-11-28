@@ -1,0 +1,44 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td class="total" width="1"><img src="{IMAGE_URL}setup/books.gif" hspace="3">
+        <td class="total">Linked Items</td>
+        <td class="total"><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+    </tr>
+</table>
+
+<form action="{LINKED_ITEMS_SETUP_URL}">
+<table cellpadding="3" cellspacing="0" border="0">
+    <tr>
+        <td class="heading">Product</td>
+        <td class="heading">Is Linked To</td>
+        <td class="heading">&nbsp;</td>
+    </tr>
+    <!-- BEGIN: link -->
+    <tr>
+        <td class="row">{from_title}</td>
+        <td class="row">{to_title}</td>
+        <td class="row"><a href="{LINKED_ITEMS_SETUP_URL}?command=delete_link&from_id={from_id}&to_id={to_id}">Delete</a></td>
+    </tr>
+    <!-- END: link -->
+    <tr>
+        <td class="row" colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="row">
+           <select name="from_id">
+               <!-- BEGIN: from_option --><option value="{title_id}">{title}</option><!-- END: from_option -->
+           </select>
+        </td>
+        <td class="row">
+           <select name="to_id">
+               <!-- BEGIN: to_option --><option value="{title_id}">{title}</option><!-- END: to_option -->
+           </select>
+        </td>
+        <td class="row"><input type="submit" name="cmd_add_link" value="Add"></td>
+    </tr>
+</table>
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

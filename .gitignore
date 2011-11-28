@@ -1,0 +1,11 @@
+.DS_Store
+.buildpath
+.project
+backups
+config.inc.php
+.xcache
+.error
+.settings
+/public/phpmyadmin
+
+

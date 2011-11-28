@@ -1,0 +1,5 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+Thank you for your interest in Dramatic Lines publications. You will now receive information of our forthcoming publications by post.
+{FILE "footer.xtpl"}
+<!-- END: main -->

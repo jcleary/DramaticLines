@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile "/fs/home/39/d/r/dramatic/public_html/setup/.htpasswd"
+require valid-user 

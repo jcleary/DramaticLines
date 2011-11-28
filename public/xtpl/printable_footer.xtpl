@@ -1,0 +1,16 @@
+				    </td>
+			    </tr>
+		    </table>
+        </td>
+    
+    </tr>
+    <!-- BEGIN: contact_details -->
+    <tr>
+        <td align="center">
+           {FILE "contact_details.xtpl"}
+        </td>
+    </tr>
+    <!-- END: contact_details -->
+</table> 
+</body>
+</html>

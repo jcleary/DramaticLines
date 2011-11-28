@@ -1,0 +1,49 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form name="formmain" method="get" action="{MAILING_URL}">
+    <input type="hidden" name="time" value="{TIME}">
+    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr>
+            <td colspan="2">Join our mailing list and receive updates of new material by post.</td>
+        </tr>
+        <tr>
+            <td width="40%">Name</td>
+            <td><input name="name" type="text" id="name" size="30" maxlength="40"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input name="address_line_1" type="text" id="address_line_1" size="30" maxlength="40"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_2" type="text" id="address_line_2" size="30" maxlength="40"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_3" type="text" id="address_line_3" size="30" maxlength="40"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_4" type="text" id="address_line_4" size="30" maxlength="40"></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>
+                <select name="country_code">
+                    <!-- BEGIN: country -->
+                    <option value="{countryCode}" <!-- BEGIN: selected -->selected<!-- END: selected -->>{countryName}</option>
+                    <!-- END: country -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Postcode</td>
+            <td><input name="postcode" type="text" id="postcode" size="12" maxlength="12"></td>
+        </tr>
+        <tr align="right">
+            <td colspan="2"><input name="cmd_join_mailing" type="image" value="Submit Order &gt;&gt;" src="{IMAGE_URL}buttons/continue.gif" width="120" height="35"></td>
+        </tr>
+    </table>
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

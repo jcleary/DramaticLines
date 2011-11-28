@@ -1,0 +1,37 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+
+<b>
+    {cat_name}
+</b>
+<br>
+{cat_subtitle}
+
+<table>
+    <tr>
+        <td valign="top" width=40%>
+
+            <table border="0" cellspacing="4" cellpadding="2" style="float: left">
+                <!-- BEGIN: book -->
+                <tr>
+                    <td align="right"><a href="{BOOKS_URL}?command=show_title&title_id={title_id}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('but_{title_id}','','{IMAGE_URL}buttons/small_book/{button_down}',1)"><img src="{IMAGE_URL}buttons/small_book/{button_up}" width="50" height="50" border="0" name="{title}"></a></td>
+                    <td valign="top"><a href="{BOOKS_URL}?command=show_title&title_id={title_id}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('but_{title_id}','','{IMAGE_URL}buttons/small_book/{button_down}',1)">{title}</a></td>
+                </tr>
+                <!-- END: book -->
+            </table>
+
+        </td>
+
+        <td valign="top" width=60%>
+            <div style="border-left: 1px solid #ccc; padding-left: 8px;">
+                {cat_description}
+            </div>
+        </td>
+
+    </tr>
+</table>
+<br>
+
+
+{FILE "footer.xtpl"}
+<!-- END: main -->

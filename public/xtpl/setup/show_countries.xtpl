@@ -1,0 +1,71 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td class="total" width="1"><img src="{IMAGE_URL}setup/globe.gif" hspace="3">
+        <td class="total">Country Setup</td>
+        <td class="total"><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+    </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td colspan="3" class="small" height="30" valign="middle">
+            <a href="{POSTAL_SETUP_URL}?cmd_show_countries&type=all">All</a> |
+            <a href="{POSTAL_SETUP_URL}?cmd_show_countries&type=unassigned">Unassigned Only</a> |
+            <a href="{POSTAL_SETUP_URL}?cmd_show_countries&type=assigned">Assigned Only</a>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <table cellpadding="3" cellspacing="0" border="0" >
+                <tr>
+                    <td class="heading">&nbsp;</td>
+                    <td class="heading">Country</td>
+                    <td class="heading">Zone</td>
+                </tr>
+                <!-- BEGIN: country_1 -->
+                <tr>
+                    <td class="row"><input type="checkbox" name="country[]" value="{cou_id}"></td>
+                    <td class="row">{cou_name}</td>
+                    <td class="row">{zon_name}&nbsp;</td>
+                </tr>
+                <!-- END: country_1 -->
+            </table>
+        </td>
+        <td><img src="{IMAGE_URL}spacer.gif" width="12"></td>
+        <td valign="top">
+            <table cellpadding="3" cellspacing="0" border="0">
+                <tr>
+                    <td class="heading">&nbsp;</td>
+                    <td class="heading">Country</td>
+                    <td class="heading">Zone</td>
+                </tr>
+                <!-- BEGIN: country_2 -->
+                <tr>
+                    <td class="row"><input type="checkbox" name="country[]" value="{cou_id}"></td>
+                    <td class="row">{cou_name}</td>
+                    <td class="row">{zon_name}&nbsp;</td>
+                </tr>
+                <!-- END: country_2-->
+            </table>
+        </td>   </tr>
+    <tr>
+        <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="heading" colspan="3" height="40">
+            Assign to
+            <select name="zone">
+                <!-- BEGIN: zone -->
+                <option value="{zon_id}">{zon_name}</option>
+                <!-- END: zone -->
+            </select>
+            <input type="submit" name="cmd_change_zones" value="Change Zones">
+        </td>
+    </tr>
+</table>
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

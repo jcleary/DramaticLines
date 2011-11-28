@@ -1,0 +1,23 @@
+<!-- BEGIN: main -->
+{FILE "header_gifts.xtpl"}
+<table border="0" cellspacing="4" cellpadding="2">
+    <tr>
+        <td colspan="2">{cat_description}</td>
+    </tr>
+    <!-- BEGIN: category -->
+    <tr>
+        <td align="right">
+            <a href="{GIFT_URL}?command=showGiftCategory&catId={cat_id}">
+            <img class="gift" src="{IMAGE_URL}categories/{cat_image}" width="50" height="50" border="0" name="{cat_name}"></a>
+        </td>
+        <td valign="middle" nowrap>
+            <a href="{GIFT_URL}?command=showGiftCategory&catId={cat_id}">
+                {cat_name}
+            </a>
+        </td>
+    </tr>
+    <!-- END: category -->
+ </table>
+
+{FILE "footer.xtpl"}
+<!-- END: main -->

@@ -1,0 +1,19 @@
+<!-- BEGIN: main -->
+ORDER CONFIRMATION
+Order No : {ordId}
+Name: {name}
+Address:
+{addressLine1}
+{addressLine2}
+{addressLine3}
+{addressLine4}
+{addressCountryName}
+{postcode}
+
+<!-- BEGIN: title -->
+{Qty} x {title} @ £ {price} = £ {BookTotal}<!-- END: title -->
+
+sub-total = £ {AllBookTotal}
+post and packing = £ {AllShippingTotal}
+Total = £ {Total}
+<!-- END: main -->

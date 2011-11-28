@@ -1,0 +1,45 @@
+<!-- BEGIN: main -->
+{FILE "header_gifts.xtpl"}
+
+<br>
+
+<span class="giftTitle">{categoryName}<br>
+<small>{categorySubtitle}</small>
+</span>
+
+<table border="0" cellspacing="4" cellpadding="2">
+    <!-- BEGIN: row -->
+    <tr>
+
+        <!-- BEGIN: productLeft -->
+        <td>
+            <a href="{BOOKS_URL}?command=show_title&title_id={title_id}">
+                <img class="gift" src="{IMAGE_URL}gifts/{button_up}">
+            </a>
+        </td>
+        <td>
+            <a href="{BOOKS_URL}?command=show_title&title_id={title_id}">{title}</a>
+        </td>
+        <!-- END: productLeft -->
+
+    </tr>
+
+    <tr>
+
+        <!-- BEGIN: productRight -->
+        <td>
+            <a href="{BOOKS_URL}?command=show_title&title_id={title_id}">
+                <img class="gift" src="{IMAGE_URL}gifts/{button_up}">
+            </a>
+        </td>
+        <td>
+            <a href="{BOOKS_URL}?command=show_title&title_id={title_id}">{title}</a>
+        </td>
+        <!-- END: productRight -->
+
+    </tr>
+    <!-- END: row -->
+</table>
+
+{FILE "footer.xtpl"}
+<!-- END: main -->

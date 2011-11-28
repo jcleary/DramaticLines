@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Dramatic Lines Publishers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="{CSS_URL}dl_general.css">
+
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr valign="middle">
+        <td height="50" valign="top"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td rowspan="3" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                <td height="10" colspan="2"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                <td rowspan="3" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+            </tr>
+            <tr>
+                <td><img src="{IMAGE_URL}logos/logo.gif" width="393" height="40" border="0"></td>
+                <td class="small">{FILE "basket_summary.xtpl"}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="doubleline"><img src="{IMAGE_URL}spacer.gif" width="1" height="4"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">Dedicated to the promotion of drama</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        </td>
+  </tr>
+  <tr>
+    <td valign="top">
+        <table cellpadding="6" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td>

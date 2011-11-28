@@ -1,0 +1,79 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<form name="formmain" method="get" action="{BASKET_URL}">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+            <td class="total" colspan="2">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/package.gif" hspace="3">
+                        <td>Delivery Details</td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- BEGIN: error_messages -->
+        <tr>
+            <td colspan="2" class="total">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="{IMAGE_URL}cart/board_attention.gif" hspace="3">
+                        <td class="error">
+                            <!-- BEGIN: error--><div class="error">{errorMessage}</div><!-- END: error -->
+                         </td>
+                        <td><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- END: error_messages -->
+        <tr>
+            <td width="40%">Name</td>
+            <td><input name="name" type="text" id="name" size="30" maxlength="40" value="{name}"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input name="address_line_1" type="text" id="address_line_1" size="30" maxlength="40" value="{address_line_1}"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_2" type="text" id="address_line_2" size="30" maxlength="40" value="{address_line_2}"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_3" type="text" id="address_line_3" size="30" maxlength="40" value="{address_line_3}"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input name="address_line_4" type="text" id="address_line_4" size="30" maxlength="40" value="{address_line_4}"></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>
+                <select name="country_code">
+                    <!-- BEGIN: country -->
+                    <option value="{countryCode}" <!-- BEGIN: selected -->selected<!-- END: selected -->>{countryName}</option>
+                    <!-- END: country -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Postcode</td>
+            <td><input name="postcode" type="text" id="postcode" size="12" maxlength="12" value="{postcode}"></td>
+        </tr>
+        <tr>
+            <td>Contact Telephone</td>
+            <td><input name="tel" type="tel" id="tel" size="30" maxlength="30"  value="{tel}"></td>
+        </tr>
+        <tr>
+            <td>E-mail (required)</td>
+            <td><input name="email" type="email" id="email" size="30" maxlength="50" value="{email}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><input name="cmd_submit_shipping_info" type="image" src="{IMAGE_URL}buttons/continue.gif" width="120" height="35"></td>
+        </tr>
+    </table>
+</form>
+{FILE "footer.xtpl"}
+<!-- END: main -->

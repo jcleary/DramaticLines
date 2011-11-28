@@ -1,0 +1,16 @@
+ <!-- BEGIN: main -->
+  {FILE "header.xtpl"}
+    <table border="0" cellspacing="1" cellpadding="3">
+        <!-- BEGIN: category -->
+        <tr>
+            <td><img src="{IMAGE_URL}categories/{cat_button}" width="130" height="100"></td>
+            <td valign="top">
+                <!-- BEGIN: title -->
+                <a href="{BOOKS_URL}?command=show_title&title_id={title_id}">{title}</a><br>
+                <!-- END: title -->
+            </td>
+        </tr>
+        <!-- END: category -->
+    </table>
+  {FILE "footer.xtpl"}
+<!-- END: main -->

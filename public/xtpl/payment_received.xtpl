@@ -1,0 +1,5 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log in to your account at <a href="http://www.paypal.com">www.paypal.com</a> to view details of this transaction.</p>
+{FILE "footer.xtpl"}
+<!-- END: main -->

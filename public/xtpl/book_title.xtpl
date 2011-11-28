@@ -1,0 +1,56 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#{colour}">
+                <tr>
+                    <td colspan="3" height="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                </tr>
+                <tr>
+                    <td align="left" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                    <td align="center" bgcolor="#FFFFFF" background="{IMAGE_URL}white_spacer.gif"><img src="{IMAGE_URL}book_covers/{cover}"></td>
+                    <td align="right" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" height="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                </tr>
+            </table>
+        </td>
+        <td align="left" valign="top"><img src="{IMAGE_URL}spacer.gif" width="16" height="1"></td>
+        <td align="left" valign="top">
+          <i>{cat_name}</i><br>
+          <strong>{title}</strong>
+          <div>{sub_title}</div><br>
+          <!-- BEGIN: author-->{author}<br><br><!-- END: author -->
+          <!-- BEGIN: isbn -->ISBN {isbn}<br><br><!-- END: isbn -->
+          &pound;{price}<br>
+          <br>
+          <a href="{BASKET_URL}?command=add_item&title_id={title_id}&qty=1&time={TIME}"><img src="{IMAGE_URL}buttons/add_to_basket.gif" border="0"></a>
+        </td>
+    </tr>
+</table>
+<div style="margin-top: 20px;">
+    {description}
+</div>
+<!-- BEGIN: linked_items -->
+   <table cellpadding="3" cellspacing="1" border="0">
+       <tr>
+           <td colspan="2"><strong>Related items</strong></td>
+        </tr>
+        <!-- BEGIN: item -->
+        <tr>
+           <td><a href="{BOOKS_URL}?command=show_title&title_id={linked.title_id}">{linked.title}</a></td>
+           <td><a href="{BASKET_URL}?command=add_item&title_id={linked.title_id}&return_id={title_id}&qty=1&time={TIME}"><img src="{IMAGE_URL}buttons/add_to_basket.gif" border="0"></a>
+        </tr>
+        <!-- END: item -->
+    </table>
+<!-- END: linked_items -->
+
+<!-- BEGIN: licences -->
+<p>Performance licences are available from Dramatic Lines on request.<p>
+<!-- END: licences -->
+
+{FILE "footer.xtpl"}
+
+<!-- END: main -->

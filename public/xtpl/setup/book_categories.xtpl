@@ -1,0 +1,38 @@
+<!-- BEGIN: main -->
+{FILE "header.xtpl"}
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td class="total" width="1"><img src="{IMAGE_URL}setup/books.gif" hspace="3">
+        <td class="total">Book &amp; Book Category Setup</td>
+        <td class="total"><img src="{IMAGE_URL}spacer.gif" height="35" width="1"></td>
+    </tr>
+</table>
+<br />
+<table border="0" cellspacing="1" cellpadding="3">
+    <tr>
+        <td bgcolor="#666666"><strong><font color="#FFFFFF">Title</font></strong></td>
+        <td align="center" bgcolor="#666666"><strong><font color="#FFFFFF">Order</font></strong></td>
+        <td align="center" bgcolor="#666666"><strong><font color="#FFFFFF">Commands</font></strong></td>
+    </tr>
+    <!-- BEGIN: category -->
+    <tr>
+        <td colspan="2" bgcolor="#999999">
+            <strong>{cat_name}</strong>
+            (<a href="index.php?command=add_title&cat_id={cat_id}">Add Title</a>)
+        </td>
+        <td align="center" bgcolor="#999999"><a href="{PHP.PHP_SELF}?command=edit_category&cat_id={cat_id}">Edit</a></td>
+    </tr>
+    <!-- BEGIN: title -->
+    <tr>
+        <td bgcolor="#CCCCCC">{title} {sub_title}</td>
+        <td align="center" bgcolor="#CCCCCC">{ord}</td>
+        <td align="center" bgcolor="#CCCCCC"><a href="index.php?command=edit_title&title_id={title_id}">Edit</a></td>
+    </tr>
+    <!-- END: title -->
+    <tr>
+        <td height="27" colspan="3">&nbsp;</td>
+    </tr>
+    <!-- END: category -->
+</table>
+{FILE "footer.xtpl"}
+<!-- END: main -->

@@ -1,0 +1,182 @@
+td, body, p
+   {
+   font-family: "Century Gothic", sans-serif;
+   color: #000000;
+   font-size: 11pt;
+   }
+
+a:link
+   {
+   color: #0000CC;
+   }
+
+a:visited
+   {
+   color: #0000CC;
+   }
+
+a:hover
+   {
+   color: #FF0000;
+   text-decoration: none;
+   }
+
+a:active
+   {
+   text-decoration: none;
+; color: #0000CC
+   }
+
+
+a.novisit:visited
+   {
+   color: #0000CC;
+   }
+
+a.novisit:hover
+   {
+   color: #CC0000;
+   text-decoration: none;
+   }
+
+.small
+{
+    color: #000000;
+    font-size: 9pt;
+}
+
+.medium
+{
+    color: #000000;
+    font-size: 10pt;
+}
+
+.heading
+{
+    background-color: #e0e0e0;
+    font-weight: bold;
+    border-top, border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+
+.row
+{
+    background-color: #F7F3F7;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+
+
+.total
+{
+    background-color: #FFFFCE;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.highlight
+{
+    color: #ff00ff;
+}
+
+.lowlight
+{
+    color: #666633;
+}
+
+.doubleline
+{
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+.singleline
+{
+    border-top: 1px solid #666;
+}
+
+.error
+{
+    font-size: 11pt;
+    color: #FF3333;
+}
+
+.errorTitle
+{
+    font-size: 11pt;
+    color: #CC0000;
+    font-weight: bold;
+}
+
+.basketCountrySelection
+{
+    font-size: 10px;
+}
+
+table.error
+{
+    font-size: 11px;
+    background-color: #ccccff;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-spacing: 0px;
+
+}
+
+table.error td
+{
+    font-size: 11px;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+}
+
+table.error th
+{
+    text-align: left;
+    font-size: 11px;
+    color: black;
+    border: solid 1px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+img.gift
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: #999999;
+}
+
+span.giftTitle
+{
+    font-size: 18px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+span.giftTitle small
+{
+    font-size: 14px;
+}
+
+
+span.giftDescription
+{
+    font-size: 14px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.dedicated
+{
+    color: #666;
+    font-style: italic;
+}
+
+ul li
+{
+    padding-bottom: 1em;
+}

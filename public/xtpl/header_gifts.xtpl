@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Dramatic Lines Publishers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="{CSS_URL}dl_general.css">
+
+<!-- This block gets placed betweent the <head></head> tags -->
+<!-- xxx Begin Head block <head></head> cut xxx -->
+<script language="JavaScript" type="text/javascript">
+<!--
+var edress = 'mail_spat_dramaticlines_spot_co_spot_uk';
+function get_edress(){
+    var re= /_spat_/gi;
+    edress = edress.replace(re,'@');
+    var re= /_spot_/gi;
+    edress = edress.replace(re,'.');
+    var the_link="mai" + "lto" +":"+edress ;
+    window.location=the_link;
+
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+// -->
+</script>
+
+</head>
+<body onLoad="" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background-image: url({IMAGE_URL}logos/happy_sad_bg.jpg); background-repeat: no-repeat">
+
+<table width="760" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr valign="middle">
+    <td rowspan="5" width="101" valign="top" style="background-color: black;"><img src="{IMAGE_URL}spacer.gif" width="101" height="1">
+
+                <p style="line-height: 25px; margin-left: 5px"><a style="color: white;" href="{BOOKS_URL}">book titles</a><br>
+                <a style="color: white" href="{GIFTS_URL}">gifts <img src="{IMAGE_URL}new.gif"></a><br>
+                <a style="color: white" href="{MAILING_LIST_URL}">mailing list</a><br>
+                <a style="color: white" href="{ABOUT_US_URL}">about us</a></p>
+
+
+    </td>
+    <td height="50" valign="top">
+        <table width="700" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td rowspan="3" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                <td height="10" colspan="2"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+                <td rowspan="3" width="10"><img src="{IMAGE_URL}spacer.gif" width="1" height="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="{IMAGE_URL}logos/logo.gif" width="393" height="40" border="0">
+                    <span style="color: red; font-size: 16px; font-weight: bold; vertical-align: top">{SITE_DESC}</span>
+                </td>
+                <td class="small">{FILE "basket_summary.xtpl"}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="singleline"><img src="{IMAGE_URL}spacer.gif" width="1" height="4"></td>
+            </tr>
+            <!-- this not shown for gifts <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">Dedicated to the promotion of drama</td>
+                <td>&nbsp;</td> -->
+            </tr>
+        </table>
+            <img src="{IMAGE_URL}spacer.gif" width="1" height="4">
+        </td>
+  </tr>
+  <tr>
+    <td valign="top">
+        <table cellpadding="6" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td>
