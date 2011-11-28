@@ -7,13 +7,7 @@ define('BASE_DIR', realpath('.')."/..");
 
 $curDir = dirname($_SERVER['PHP_SELF']);
 
-// if we're at the root we don't want a double slash
-if ($curDir != '/') {
-    define('BASE_URL', '/');
-//    define('BASE_URL',  $curDir . '/');
-} else {
-    define('BASE_URL', '/');
-}
+define('BASE_URL', '/');
 
 // Directory Defines
 define('SHARED',                 BASE_DIR . '/shared/');

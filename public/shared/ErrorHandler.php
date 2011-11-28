@@ -12,7 +12,12 @@ function errorHandlerDevTest($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
 
 {
 
-    if ($ErrNo == E_NOTICE) {
+	// @todo remove once we're on 5.3
+	if (!defined('E_DEPRECATED')) {
+		define('E_DEPRECATED', 8192);
+	}
+	
+    if (in_array($ErrNo, array(E_NOTICE, E_DEPRECATED))) {
          // we aren't interested in backtrace for notice errors
         // so just:
         return;
@@ -29,7 +34,8 @@ function errorHandlerDevTest($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
         E_COMPILE_WARNING => "Compile Warning",
         E_USER_ERROR      => "User Error",
         E_USER_WARNING    => "User Warning",
-        E_USER_NOTICE     => "User Notice"
+        E_USER_NOTICE     => "User Notice",
+        E_DEPRECATED      => "Deprecated"
     );
 
     $UserErrors = array(E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE);
