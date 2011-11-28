@@ -12,23 +12,22 @@ class Categories {
     //
     // Shows the categories
     // ----------------------------------------------------------------------
-    function ShowDetails($FrontEnd = true)
+    public function showDetails($FrontEnd = true)
     {
         connect_db();
 
-        if ($FrontEnd) {
-            //$xtpl = new XTemplate(TEMPLATES.'book_categories.xtpl');
-            $xtpl = new XTemplate('book_categories_midway.xtpl', TEMPLATES);
-            $sql = 'select * from categories where cat_order > 0 order by cat_order';
-        } else {
-            $xtpl = new XTemplate('book_categories.xtpl', SETUP_TEMPLATES);
-            $sql = 'select * from categories order by cat_order';
+        if (!$FrontEnd) {
+        	return $this->showDetailsBackend();
         }
-
+        
+        $xtpl = new XTemplate('book_categories_midway.xtpl', TEMPLATES);
+        $sql = 'select * from categories order by cat_order';
+        $sql = 'select * from categories where cat_order > 0 order by cat_order';
+        
         $maxBooksPerRow = 2;
         $column = 1;
         $qry = mysql_query('select * from titles where top_order > 0 order by top_order');
-
+        
         while($row = mysql_fetch_array($qry)) {
             $xtpl->assign($row);
 
@@ -64,15 +63,7 @@ class Categories {
 
             $cat_id = $row['cat_id'];
 
-            //$qry2 = mysql_query("select * from titles where cat_id = $cat_id order by ord");
-           // while ($row2 = mysql_fetch_array($qry2)) {
-             //   foreach($row2 as $field => $value) {
-               //     $xtpl->assign($field, $value);
-                //}
-
-                $xtpl->parse('main.categoryRow.category.title');
-
-            //}
+            $xtpl->parse('main.categoryRow.category.title');
 
             if ($x == 0) {
 
@@ -87,9 +78,6 @@ class Categories {
             } else {
                 $x++;
             }
-
-
-
         }
 
         global $Basket;
@@ -99,8 +87,6 @@ class Categories {
 
         $xtpl->parse('main');
         $xtpl->out('main');
-
-
     }
 
     // ----------------------------------------------------------------------
@@ -137,8 +123,6 @@ class Categories {
 
         $xtpl->parse('main');
         $xtpl->out('main');
-
-
     }
 
     // ----------------------------------------------------------------------
@@ -229,6 +213,35 @@ class Categories {
         $xtpl->parse('main');
         $xtpl->out('main');
 
+    }
+    
+    private function showDetailsBackend()
+    {
+        $xtpl = new XTemplate('book_categories.xtpl', SETUP_TEMPLATES);
+    	$sql = 'select * from categories where cat_order > 0 order by cat_order';
+        
+        $qry = mysql_query($sql);
+        
+        while($row = mysql_fetch_assoc($qry)) {
+            $xtpl->assign($row);            
+            $this->assignTitles($xtpl, $row['cat_id']);            
+            $xtpl->parse('main.category');
+        }
+                
+        $xtpl->parse('main');
+        $xtpl->out('main');
+        echo 1121;
+    	
+    }
+    
+    private function assignTitles($xtpl, $catId)
+    {
+        $qry = mysql_query("select title_id, title, button_up, price, ord from titles where cat_id = $catId order by ord");
+    	    
+        while($row = mysql_fetch_assoc($qry)) {
+            $xtpl->assign($row);
+            $xtpl->parse('main.category.title');
+        }        
     }
 
 
