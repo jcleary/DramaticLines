@@ -12,7 +12,8 @@ class Categories {
     //
     // Shows the categories
     // ----------------------------------------------------------------------
-    public function showDetails($FrontEnd = true)
+    
+    function showDetails($FrontEnd = true)
     {
         connect_db();
 
@@ -215,7 +216,7 @@ class Categories {
 
     }
     
-    private function showDetailsBackend()
+    function showDetailsBackend()
     {
         $xtpl = new XTemplate('book_categories.xtpl', SETUP_TEMPLATES);
     	$sql = 'select * from categories where cat_order > 0 order by cat_order';
@@ -234,7 +235,7 @@ class Categories {
     	
     }
     
-    private function assignTitles($xtpl, $catId)
+    function assignTitles($xtpl, $catId)
     {
         $qry = mysql_query("select title_id, title, button_up, price, ord from titles where cat_id = $catId order by ord");
     	    
