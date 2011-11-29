@@ -1,3 +1,4 @@
+
 <?php
 
 // @todo remove once we're on 5.3
@@ -75,8 +76,9 @@ function errorHandlerLive($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
         E_COMPILE_WARNING => "Compile Warning",
         E_USER_ERROR      => "User Error",
         E_USER_WARNING    => "User Warning",
-        E_USER_NOTICE     => "User Notice"
-    );
+        E_USER_NOTICE     => "User Notice",
+        E_DEPRECATED      => "Deprecated",
+        );
 
     $UserErrors = array(E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE);
 
