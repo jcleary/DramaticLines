@@ -45,7 +45,9 @@ function errorHandlerDevTest($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
     $Err .= "<tr><th>Message</th><td>" .  $ErrMsg . "</td></tr>\n";
     $Err .= "<tr><th>Filename</th><td>" . basename($Filename) . "</td></tr>\n";
     $Err .= "<tr><th>Line</th><td>" .     $LineNum . "</td></tr>\n";
-
+    $Err .= "<tr><th>URL</th><td>" .$_SERVER['PHP_SELF'] . "</td></tr>\n";
+    $Err .= "<tr><th>Request</th><td>" . var_export($_REQUEST, true). "</td></tr>\n";
+    
     $Err .= "</table>";
 
     $Err .= backtraceDump(array("errorhandlerdevtest")) . "<br><br>";
@@ -87,7 +89,9 @@ function errorHandlerLive($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
     $Err .= "<tr><th>Message</th><td>" .  $ErrMsg . "</td></tr>\n";
     $Err .= "<tr><th>Filename</th><td>" . basename($Filename) . "</td></tr>\n";
     $Err .= "<tr><th>Line</td><th>" .     $LineNum . "</td></tr>\n";
-
+    $Err .= "<tr><th>URL</th><td>" .$_SERVER['PHP_SELF'] . "</td></tr>\n";
+    $Err .= "<tr><th>Request</th><td>" . var_export($_REQUEST, true). "</td></tr>\n";
+    
     $Err = "<table border=1>" . $Err . "</table>";
 
     $Err .= backtraceDump(array("errorhandlerlive"));
