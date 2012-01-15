@@ -26,23 +26,20 @@ function PreventResubmit()
     global $TimeArray;
     static $submitOk = false;
 
-
     if ($submitOk) {
         return true;
     }
 
     $retVal = true;
 
-    if (!session_is_registered('TimeArray')) {
-        session_register('TimeArray');
-        $TimeArray = array();
+    if (!array_key_exists('TimeArray', $_SESSION)) {
+    	$_SESSION['TimeArray'] = array();
     }
-
-
-    if (in_array($HTTP_GET_VARS['time'], $TimeArray)) {
+    
+    if (in_array($_REQUEST['time'], $_SESSION['TimeArray'])) {
         $retVal = false;
     } else {
-        $TimeArray[] = $HTTP_GET_VARS['time'];
+        $_SESSION['TimeArray'][] = $_REQUEST['time'];
     }
 
     return($retVal);

@@ -32,7 +32,7 @@ function backtraceDump($Ignore = array())
         $Trace .= "<td>" . basename($Row["file"]) . "</td>";
         $Trace .= "<td align=right>" . $Row["line"] . "</td>";
 
-        if (!$Row["class"]) {
+        if (!isset($Row["class"])) {
             $Trace .= "<td>" . $Row["function"] . "()</td>";
         } else {
             $Trace .= "<td>" . $Row["class"] . "::" . $Row["function"] . "()</td>";

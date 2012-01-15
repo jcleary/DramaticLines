@@ -63,9 +63,12 @@ define('CSS_URL',   BASE_URL . 'css/');
 // connect to the database
 connect_db();
 
-if (!session_is_registered('Basket') || is_null($Basket)) {
-    session_register('Basket');
-    $Basket = new Basket();
+
+if (array_key_exists('Basket', $_SESSION)){ 
+	$Basket = $_SESSION['Basket'];
+} else {
+	$Basket = new Basket();
+	$_SERVER['Basket'] = $Basket;
 }
 
 ?>
