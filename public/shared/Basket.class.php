@@ -322,11 +322,9 @@ class Basket extends Base {
     // work out the p&p costs
     // ----------------------------------------------------------------------
     function getPostageCost()
-
     {
 
         $shippingTotal = 0;
-        //$weightTotal = 0;
 
         foreach($this->Items as $Item) {
             $shippingTotal += $Item->Qty * $Item->ShippingCost;
@@ -349,7 +347,7 @@ class Basket extends Base {
         //    }
         //}
 
-        return $shippingTotal;
+        return (float)$shippingTotal;
     }
 
 
