@@ -1,10 +1,4 @@
-
 <?php
-
-// @todo remove once we're on 5.3
-if (!defined('E_DEPRECATED')) {
-    define('E_DEPRECATED', 8192);
-}
 
 if (SYSTEM_TYPE == SYSTEM_LIVE) {
     set_error_handler("errorHandlerLive");
