@@ -267,7 +267,7 @@ class Basket extends Base {
         //    $xtpl->parse('main.ukRatesNote');
         //}
 
-        parse_country_select(&$xtpl, $this->countryCode);
+        parse_country_select($xtpl, $this->countryCode);
 
         // *********************
         // payment method descr
