@@ -1,48 +1,40 @@
 <?php
-// --------------------------------------------------------------------------
-// Base.class.php
-//
-// a base class for all classes
-// --------------------------------------------------------------------------
 
-
-
+/**
+ * A base class for all classes
+ * 
+ * @author John Cleary
+  */
 class Base
 {
-    var $_errorMessages = array();
+    private $_errorMessages = array();
     
-    
-    
-    // ----------------------------------------------------------------------
-    // addErrorMessage
-    //
-    // adds an error message to the array of error messages
-    // ----------------------------------------------------------------------
+    /**
+     * Adds an error message to the array of error messages
+     * 
+     * @param string $message
+     */
     function addErrorMessage($message)
     {
         $this->_errorMessages[] = $message;
     }   
     
-    
-    
-    // ----------------------------------------------------------------------
-    // clearErrorMessages
-    //
-    // clears array of error messages
-    // ----------------------------------------------------------------------
+    /**
+     * Clears array of error messages
+     * 
+     */
     function clearErrorMessages()
     {
         $this->_errorMessages = array();
     }
     
-    
-    
-    // ----------------------------------------------------------------------
-    // parseErrorMessages
-    //
-    // parses the array of error messages
-    // ----------------------------------------------------------------------
-    function parseErrorMessages(&$xtpl, $clearWhenDone = true)
+    /**
+     * parses the array of error messages
+     * 
+     * @param $xtpl
+     * @param $clearWhenDone
+     */
+    function parseErrorMessages(XTemplate $xtpl, $clearWhenDone = true)
     {        
         if ($this->hasErrors()) {
             foreach($this->_errorMessages as $message) {
@@ -56,15 +48,13 @@ class Base
         if ($clearWhenDone) {
             $this->clearErrorMessages();
         } 
-    }
-
+    }    
     
-    
-    // ----------------------------------------------------------------------
-    // parseErrorMessages
-    //
-    // parses the array of error messages
-    // ----------------------------------------------------------------------
+    /**
+     * Returns true if there are any error messages
+     * 
+     * @return bool
+     */
     function hasErrors()
     {
         return (count($this->_errorMessages) > 0);
@@ -72,4 +62,3 @@ class Base
     
 }
 
-?>

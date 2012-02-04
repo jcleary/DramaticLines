@@ -15,7 +15,7 @@ function backtraceDump($Ignore = array())
     $Trace = "";
 
     $Backtrace = debug_backtrace();
-
+    
     $Trace .='<table class="error" border=1>';
     $Trace .="<th>Filename</th>";
     $Trace .="<th>Line</th>";

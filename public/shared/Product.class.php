@@ -4,8 +4,8 @@
 // --------------------------------------------------------------------------
 // this is a parent class for all products
 
-class Product {
-
+class Product 
+{
     var $ProductCode;
     var $ProductCost;
     var $Description;

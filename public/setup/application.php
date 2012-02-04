@@ -39,9 +39,6 @@ session_start();
 
 include_once(SHARED . 'tools.php');
 
-// register_globals must be on for this app
-// or we'll need $Basket = $_SESSION['Basket'] or similar
-
 // file defines
 define('INDEX_URL',        BASE_URL . 'index.php');
 define('BASKET_URL',       BASE_URL . 'basket.php');

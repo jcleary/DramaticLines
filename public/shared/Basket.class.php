@@ -1,18 +1,10 @@
 <?php
-// --------------------------------------------------------------------------
-// basket.class.php
-// --------------------------------------------------------------------------
-// This class manages the whole shopping basket process, from adding items,
-// removing or changing quantities, capturing deliver and invoice details,
-// taking payment and sending confirmation emails
-
 
 // Includes
 include_once(PHP_MAILER . 'class.phpmailer.php');
 include_once(SHARED . 'dl_general.inc.php');
 include_once(SHARED . 'Base.class.php');
 include_once(SHARED . 'messages.inc.php');
-
 
 // basket printing mode
 define('BASKET_EDIT',                    1);
@@ -31,42 +23,48 @@ define ('PAYMENT_METHOD_PRINT',         'PRINT');
 define ('PAYMENT_METHOD_OFFICAL_ORDER', 'OFFICAL');
 define ('PAYMENT_METHOD_UNKNOWN',       'UNKNOWN');
 
-
+/**
+ * This class manages the whole shopping basket process, from adding items,
+ * removing or changing quantities, capturing deliver and invoice details,
+ * taking payment and sending confirmation emails
+ * 
+ * @author John Cleary
+ */
 class Basket extends Base {
 
-    var $Items = array();
+    public $Items = array();
 
-    var $ordId;
+    public $ordId;
 
-    var $itemsTotal;
-    var $pAndP;
-    var $orderTotal;
+    public $itemsTotal;
+    public $pAndP;
+    public $orderTotal;
 
-    var $name;
-    var $addressLine1;
-    var $addressLine2;
-    var $addressLine3;
-    var $addressLine4;
-    var $countryCode = 'GB'; // default to GB
-    var $postcode;
+    public $name;
+    public $addressLine1;
+    public $addressLine2;
+    public $addressLine3;
+    public $addressLine4;
+    public $countryCode = 'GB'; // default to GB
+    public $postcode;
 
-    var $tel;
-    var $email;
+    public $tel;
+    public $email;
 
-    var $paymentMethod;
+    public $paymentMethod;
 
-    var $createdDate;
+    public $createdDate;
 
-    var $shippingSaved = false;
-    var $paymentSaved = false;
+    public $shippingSaved = false;
+    public $paymentSaved = false;
 
-
-    // ----------------------------------------------------------------------
-    // Basket
-    //
-    // Constructor. Used to re-create a basket from the database
-    // ----------------------------------------------------------------------
-    function Basket($orderId = null, $securityCode = null)
+    /**
+     * Constructor. Used to re-create a basket from the database
+     * 
+     * @param int $orderId
+     * @param int $securityCode
+     */
+    public function __construct($orderId = null, $securityCode = null)
     {
         // if an order id is provided then try to read order from database
         if (!is_null($orderId)) {
@@ -114,32 +112,29 @@ class Basket extends Base {
 
     }
 
-
-    // ----------------------------------------------------------------------
-    // AddItem
-    //
-    // Add an item to the basket
-    // ----------------------------------------------------------------------
-    function addItem($Product)
+    /**
+     * Add an item to the basket
+     * .
+     * @param $Product
+     */
+    public function addItem(Product $product)
     {
 
         if (PreventResubmit()) {
             // first of all check if the product is already in the basket
             $Found = false;
             for ($i=0; $i < count($this->Items); $i++) {
-                if ($this->Items[$i]->ProductCode == $Product->ProductCode) {
-                    $this->Items[$i]->Qty += $Product->Qty;
+                if ($this->Items[$i]->ProductCode == $product->ProductCode) {
+                    $this->Items[$i]->Qty += $product->Qty;
                     $Found = true;
                 }
             }
 
             if (!$Found) {
-                $this->Items[] = $Product;
+                $this->Items[] = $product;
             }
         }
     }
-
-
 
 
     // ----------------------------------------------------------------------
@@ -177,30 +172,30 @@ class Basket extends Base {
         switch ($basketMode) {
             case BASKET_TXT_CONFIRMATION_EMAIL:
                 $templateFilename = 'email/order_confirmation_txt.xtpl';
-            break;
+                break;
 
             case BASKET_HTML_CONFIRMATION_EMAIL:
                 $templateFilename = 'email/order_confirmation_html.xtpl';
-            break;
+                break;
 
             case BASKET_PRINT:
             case BASKET_FAX:
             case BASKET_PHONE:
                 $templateFilename = 'printable_order_form.xtpl';
-            break;
+                break;
 
             case BASKET_CONFIRM:
                 $templateFilename = 'confirm_order.xtpl';
-            break;
+                break;
 
             case BASKET_SETUP_VIEW_ORDER:
                 $templateFilename = 'setup/view_order.xtpl';
-            break;
+                break;
 
             case BASKET_EDIT:
             default:
                 $templateFilename = 'show_basket.xtpl';
-            break;
+                break;
         }
 
         $xtpl = new XTemplate($templateFilename, TEMPLATES);
@@ -249,30 +244,23 @@ class Basket extends Base {
                 $xtpl->parse('main.dramatic_address');
                 $xtpl->parse('main.post_instructions');
                 $xtpl->parse('main.credit_card_details');
-            break;
+                break;
 
             case BASKET_FAX:
                 $xtpl->parse('main.fax_instructions');
                 $xtpl->parse('main.credit_card_details');
-            break;
+                break;
 
             case BASKET_PHONE:
                 $xtpl->parse('main.phone_instructions');
-            break;
+                break;
         }
-
-        // default is GB
-        //if ($this->countryCode == 'GB') {
-        //    $xtpl->parse('main.ukRatesIndicator');
-        //    $xtpl->parse('main.ukRatesNote');
-        //}
 
         parse_country_select($xtpl, $this->countryCode);
 
         // *********************
         // payment method descr
         // *********************
-
         $xtpl->assign('paymentMethodDescr', $this->_getPaymentMethodDescr($this->paymentMethod));
 
         $xtpl->parse('main');
@@ -282,7 +270,6 @@ class Basket extends Base {
         } else {
             $xtpl->out('main');
         }
-
     }
 
 
@@ -291,7 +278,7 @@ class Basket extends Base {
     //
     // Show the shipping info
     // ----------------------------------------------------------------------
-    function showShippingInfo()
+    public function showShippingInfo()
     {
         $xtpl = new XTemplate('shipping_info.xtpl', TEMPLATES);
 
@@ -314,14 +301,12 @@ class Basket extends Base {
         $xtpl->out('main');
     }
 
-
-
-    // ----------------------------------------------------------------------
-    // getPostageCost
-    //
-    // work out the p&p costs
-    // ----------------------------------------------------------------------
-    function getPostageCost()
+    /**
+     * work out the p&p costs
+     *
+     * @return float
+     */
+    private function getPostageCost()
     {
 
         $shippingTotal = 0;
