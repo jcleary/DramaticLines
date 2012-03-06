@@ -14,6 +14,7 @@ define('SHARED',                 BASE_DIR . '/shared/');
 define('PHP_MAILER',             BASE_DIR . '/phpmailer/');
 define('BOOK_COVER_IMAGES',      BASE_DIR . '/images/book_covers/');
 define('MINI_BOOK_COVER_IMAGES', BASE_DIR . '/images/buttons/small_book/');
+define('SWIFT_MAILER',           BASE_DIR . '/swift/');
 
 // templates
 define('TEMPLATES',              BASE_DIR . '/xtpl/');
@@ -34,6 +35,7 @@ include_once(SHARED . 'Request.class.php');
 include_once(SHARED . 'Basket.class.php');
 include_once(SHARED . 'XTemplate.class.php');
 include_once(SHARED . 'Product.class.php');
+require_once(SWIFT_MAILER . 'swift_required.php');
 
 session_start();
 

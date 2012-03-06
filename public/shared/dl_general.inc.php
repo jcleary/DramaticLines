@@ -13,5 +13,11 @@ define('STYLE_HEADING', 'font-family: Century Gothic, Verdena, Arial; background
 define('STYLE_DOUBLELINE', 'border-top: 2px solid black; border-bottom: 2px solid black;');
 
 
+define('TYPE_STRING',  1);
+define('TYPE_INTEGER', 2);
+define('TYPE_BOOLEAN', 3);
+define('TYPE_FLOAT',   4);
+define('TYPE_DOUBLE',  5);
+define('TYPE_ARRAY',   6);
 
 ?>

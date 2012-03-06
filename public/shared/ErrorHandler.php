@@ -1,16 +1,15 @@
 <?php
-
+/*
 if (SYSTEM_TYPE == SYSTEM_LIVE) {
     set_error_handler("errorHandlerLive");
 } else {
     set_error_handler("errorHandlerDevTest");
 }
-
+*/
 // ------------------------------------------------------------------
 function errorHandlerDevTest($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
 // ------------------------------------------------------------------
-
-{	
+{		
     if (in_array($ErrNo, array(E_NOTICE, E_DEPRECATED))) {
          // we aren't interested in backtrace for notice errors
         // so just:
@@ -55,6 +54,7 @@ function errorHandlerDevTest($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
 function errorHandlerLive($ErrNo, $ErrMsg, $Filename, $LineNum, $Vars)
 // ------------------------------------------------------------------
 {
+	
     if (in_array($ErrNo, array(E_NOTICE, E_DEPRECATED))) {
 	         // we aren't interested in backtrace for notice errors
         // so just:
