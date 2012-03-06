@@ -72,30 +72,23 @@ class MailingList extends Base
         $emailTxt .= "Postcode $postcode\n";
         $emailTxt .= "Country: " . getCountryName($countryCode) . " ($countryCode)\n";
         $emailTxt .= "Date:    " . date('D j M Y') . "\n";
-
-        $mailer = new PhpMailer();
-        $mailer->From = EMAIL_FROM;
-        $mailer->FromName = EMAIL_FROM_NAME;
-
-        $mailer->AddAddress(EMAIL_FROM, EMAIL_FROM_NAME);
-        $mailer->AddAddress(EMAIL_ADMIN, EMAIL_ADMIN_NAME);
-
-        $mailer->IsHTML(false);
-        $mailer->Subject = "New Mailing List Member";
-        $mailer->Body    = $emailTxt;
-
-        $mailer->IsSMTP();                       // set mailer to use SMTP
-        $mailer->Host = EMAIL_FROM_SMPT;         // specify main and backup server
-        $mailer->SMTPAuth = true;                // turn on SMTP authentication
-        $mailer->Username = EMAIL_FROM_USERNAME; // SMTP username
-        $mailer->Password = EMAIL_FROM_PASSWORD; // SMTP password
-
-        if(!$mailer->Send())
-        {
-           echo "Message could not be sent. <p>";
-           echo "Mailer Error: " . $mailer->ErrorInfo;
-           exit;
-        }
+        
+        $transport = Swift_SmtpTransport::newInstance(EMAIL_FROM_SMPT, 465, 'ssl')
+            ->setUsername(EMAIL_FROM_USERNAME)
+            ->setPassword(EMAIL_FROM_PASSWORD);
+        
+        $mailer = Swift_Mailer::newInstance($transport);     
+            
+        $message = Swift_Message::newInstance()
+            ->setSubject("New Mailing List Member")
+            ->setFrom(array(EMAIL_FROM => EMAIL_FROM_NAME))
+            ->setTo(array(
+                EMAIL_FROM => EMAIL_FROM_NAME,
+                EMAIL_ADMIN => EMAIL_ADMIN_NAME
+                ))
+            ->setBody($emailTxt);
+                        
+        $result = $mailer->send($message);            
 
     }
 
