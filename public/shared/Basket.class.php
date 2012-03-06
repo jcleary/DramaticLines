@@ -557,7 +557,7 @@ class Basket extends Base {
         $htmlConfirmation = $this->showBasket(BASKET_HTML_CONFIRMATION_EMAIL, true);
         $txtConfirmation = $this->showBasket(BASKET_TXT_CONFIRMATION_EMAIL, true);
 
-        $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465)
+        $transport = Swift_SmtpTransport::newInstance(EMAIL_FROM_SMPT, 465, 'ssl')
             ->setUsername(EMAIL_FROM_USERNAME)
             ->setPassword(EMAIL_FROM_PASSWORD);
         
@@ -569,44 +569,9 @@ class Basket extends Base {
             ->setTo(array($this->email => $this->name))
             ->setBcc(array(EMAIL_FROM => EMAIL_FROM_NAME))
             ->setBody($txtConfirmation)
-            ->addPart($htmlConfirmation, 'text/html')
-            
-            ;
-            
-        $result = $mailer->send($message);    
-            
-        
-        var_dump($result);
-
-        //$mailer = new PhpMailer();
-        //$mailer->From = EMAIL_FROM;
-        //$mailer->FromName = EMAIL_FROM_NAME;
-
-        //$mailer->AddAddress($this->email, $this->name);
-        //$mailer->AddBCC(EMAIL_FROM, EMAIL_FROM_NAME);
-
-        
-        //$mailer->IsHTML(true);
-
-        // careful with the wording as my copy of Outlook considers some variations to be junk mail
-        //$mailer->Subject = "Your Dramatic Lines order ($this->ordId)";
-        //$mailer->Body    = $htmlConfirmation;
-        //$mailer->AltBody = $txtConfirmation;
-
-        //$mailer->IsSMTP();                       // set mailer to use SMTP
-        //$mailer->Host = EMAIL_FROM_SMPT;         // specify main and backup server
-        //$mailed->Port = EMAIL_FROM_PORT;         // and port
-        //$mailer->SMTPAuth = true;                // turn on SMTP authentication
-        //$mailer->Username = EMAIL_FROM_USERNAME; // SMTP username
-        //$mailer->Password = EMAIL_FROM_PASSWORD; // SMTP password
-
-        if(!$mailer->Send())
-        {
-           echo "Message could not be sent. <p>";
-           echo "Mailer Error: " . $mailer->ErrorInfo;
-           exit;
-        }
-
+            ->addPart($htmlConfirmation, 'text/html');
+                        
+        $result = $mailer->send($message);            
     }
 
 
