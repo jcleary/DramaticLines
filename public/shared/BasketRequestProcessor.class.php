@@ -22,7 +22,7 @@ class BasketRequestProcessor extends RequestProcessor
     // ----------------------------------------------------------------------
     function process()
     {
-        global $Basket;
+        $Basket = $_SESSION['Basket'];
         $displayDone = false;
         $request = new Request();
 
